@@ -1,0 +1,71 @@
+.root {
+    -fx-font-family: "Helvetica";
+    -fx-background-color: #1A1A1A;
+    -fx-text-fill: white;
+    -fx-selection-bar-text: firebrick;
+}
+
+.button {
+    -fx-text-fill: white;
+    -fx-background-color: #222222;
+}
+
+#logo {
+    -fx-background-color: #1A1A1A;
+}
+
+.text-field {
+    -fx-background-color: #333333;
+}
+
+.table-view {
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+    -fx-table-header-border-color: #1A1A1A;
+    -fx-table-cell-border-color: #1A1A1A;
+}
+
+.table-view .column-header {
+    -fx-background-color: #222222;
+    -fx-text-fill: white;
+}
+
+.table-row-cell:odd{
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+}
+.table-row-cell:even{
+    -fx-background-color: #2A2A2A;
+    -fx-text-fill: white;
+}
+.table-view .separator {
+    -fx-background-color: #222222;
+    -fx-fill: #222222;
+}
+
+.label {
+    -fx-text-fill: white;
+}
+
+.table-row-cell:filled .table-cell {
+    -fx-text-fill: #CCCCCC;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #444444;
+}
+
+.text-field {
+    -fx-text-fill: #CCCCCC;
+}
+
+#labelCurrentUser {
+    -fx-font-weight: bold;
+    -fx-font-family: "Helvetica Neue";
+}
+
+.separator *.line {
+    -fx-border-style: solid;
+    -fx-border-width: 1 1 1 1; /* its make really one-pixel-border */
+    -fx-border-color: linear-gradient(to right, #CCCCCC 25%, #1A1A1A);
+}

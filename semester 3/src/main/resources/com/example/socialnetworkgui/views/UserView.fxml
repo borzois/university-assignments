@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.skin.TabPaneSkin.TabContentRegion?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.socialnetworkgui.controller.UserController"
+            stylesheets="@../css/style.css">
+    <HBox alignment="CENTER" spacing="20.0">
+        <padding>
+            <Insets left="20.0" right="20.0"/>
+        </padding>
+
+        <VBox alignment="TOP_CENTER" spacing="20.0" id="sidebar">
+            <padding>
+                <Insets top="20.0"/>
+            </padding>
+            <Button mnemonicParsing="false" onAction="#handleClearSearch" id="logo">
+                <graphic>
+                    <FontIcon iconLiteral="fltral-color-24" iconSize="48" iconColor="gold"/>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Logo" />
+                </tooltip>
+                <padding>
+                    <Insets left="-40.0" right="-40.0"/>
+                </padding>
+            </Button>
+
+            <Button mnemonicParsing="false" onAction="#handleAddUser">
+                <graphic>
+                    <FontIcon iconLiteral="fltfmz-person-add-20" iconSize="32" iconColor="#CCCCCC"/>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Add user" />
+                </tooltip>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleRemoveUser" >
+                <graphic>
+                    <FontIcon iconLiteral="fltfmz-person-delete-20" iconSize="32" iconColor="#CCCCCC"/>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Remove user" />
+                </tooltip>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleShowFriends">
+                <graphic>
+                    <FontIcon iconLiteral="fltfmz-people-20" iconSize="32" iconColor="#CCCCCC"/>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Show Friends"/>
+                </tooltip>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleShowFriendRequests">
+                <graphic>
+                    <FontIcon iconLiteral="fltfmz-people-swap-20" iconSize="32" iconColor="#CCCCCC"/>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Requests"/>
+                </tooltip>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleAddFriend">
+                <graphic>
+                    <FontIcon iconLiteral="fltfmz-people-add-20" iconSize="32" iconColor="#CCCCCC"/>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Add friend" />
+                </tooltip>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleRemoveFriend">
+                <graphic>
+                    <FontIcon iconLiteral="fltfmz-people-prohibited-20" iconSize="32" iconColor="#CCCCCC"/>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Remove friend" />
+                </tooltip>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleOpenChat">
+                <graphic>
+                    <FontIcon iconLiteral="fltfmz-mail-20" iconSize="32" iconColor="#CCCCCC"/>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Direct message" />
+                </tooltip>
+            </Button>
+        </VBox>
+
+        <Separator orientation="VERTICAL"/>
+
+        <VBox>
+            <HBox spacing="20.0" alignment="CENTER_LEFT">
+                <padding>
+                    <Insets top="20.0" right="20.0"/>
+                </padding>
+                <Label fx:id="labelCurrentUser" alignment="CENTER"/>
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Button mnemonicParsing="false" onAction="#handleSelectUser" text="Log in" alignment="CENTER_RIGHT"/>
+                <Button mnemonicParsing="false" onAction="#handleClearSearch" text="Log out" alignment="CENTER_RIGHT"/>
+            </HBox>
+
+            <HBox>
+                <VBox alignment="CENTER" spacing="20.0">
+                    <padding>
+                        <Insets top="20.0" bottom="20.0"/>
+                    </padding>
+
+                    <TableView fx:id="userTableView" prefWidth="320.0" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colID" text="ID" prefWidth="60.0" resizable="false"/>
+                            <TableColumn fx:id="colName" text="Full Name" prefWidth="258.0" resizable="false"/>
+                        </columns>
+
+                    </TableView>
+                    <Pane HBox.hgrow="ALWAYS"/>
+                </VBox>
+
+                <VBox alignment="CENTER" spacing="20.0">
+                    <padding>
+                        <Insets top="20.0" bottom="20.0" left="20.0" right="20.0"/>
+                    </padding>
+
+                    <TableView fx:id="sentRequestTableView" prefWidth="350.0" prefHeight="200.0">
+                        <columns>
+                            <TableColumn fx:id="colSentRequestUser" text="To" prefWidth="90.0"/>
+                            <TableColumn fx:id="colSentRequestDate" text="Date" prefWidth="160.0"/>
+                            <TableColumn fx:id="colSentRequestStatus" text="Status" prefWidth="98.0"/>
+                        </columns>
+                    </TableView>
+                    <Button mnemonicParsing="false" onAction="#handleCancelFriendRequest" text="Cancel Friend Request"/>
+
+                    <TableView fx:id="receivedRequestTableView" prefWidth="350.0" prefHeight="200.0">
+                        <columns>
+                            <TableColumn fx:id="colReceivedRequestUser" text="From" prefWidth="90.0"/>
+                            <TableColumn fx:id="colReceivedRequestDate" text="Date" prefWidth="160.0"/>
+                            <TableColumn fx:id="colReceivedRequestStatus" text="Status" prefWidth="98.0"/>
+                        </columns>
+                    </TableView>
+                    <Button mnemonicParsing="false" onAction="#handleAcceptFriendRequest" text="Accept Friend Request"/>
+                    <Pane HBox.hgrow="ALWAYS"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </HBox>
+</AnchorPane>
